@@ -1,5 +1,4 @@
 
-  
 
 <!DOCTYPE html>
 <!-- source: docs/source/llms/tracing/overview.rst -->
@@ -10,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tracing Concepts &mdash; MLflow 2.14.1.dev0 documentation</title>
+  <title>Tracing Concepts</title>
   
    
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -23,14 +22,6 @@
     
 
   
-    
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer',"GTM-N6WMTTJ");</script>
-        <!-- End Google Tag Manager -->
     
 
   
@@ -56,10 +47,10 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="MLflow 2.14.1.dev0 documentation" href="../../index.html"/>
+    <link rel="top" title="MLflow 2.16.1.dev0 documentation" href="../../index.html"/>
         <link rel="up" title="LLMs" href="../index.html"/>
-        <link rel="next" title="MLflow Deployments Server (Experimental)" href="/../deployments/index.html"/>
-        <link rel="prev" title="Tracing in MLflow" href="/index.html"/> 
+        <link rel="next" title="MLflow Tracing Schema" href="/tracing-schema.html"/>
+        <link rel="prev" title="Introduction to MLflow Tracing" href="/index.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -74,11 +65,6 @@
 
 <body class="wy-body-for-nav" role="document">
   
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6WMTTJ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-  
 
   
   <nav class="wy-nav-top header" role="navigation" aria-label="top navigation">
@@ -88,7 +74,7 @@
     <a href="../../index.html" class="wy-nav-top-logo"
       ><img src="../../_static/MLflow-logo-final-black.png" alt="MLflow"
     /></a>
-    <span class="version">2.14.1.dev0</span>
+    <span class="version">2.16.1.dev0</span>
   </li>
 </ul>
   </nav>
@@ -130,12 +116,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../new-features/index.html">New Features</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">LLMs</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#id1">MLflow Tracing</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="index.html">Tracing in MLflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html">Introduction to MLflow Tracing</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Tracing Concepts</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#what-is-tracing">What is tracing?</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#getting-started-with-tracing-in-mlflow">Getting Started with Tracing in MLflow</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="tracing-schema.html">MLflow Tracing Schema</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#id2">MLflow Deployments Server for LLMs</a></li>
@@ -146,6 +133,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#tutorials-and-use-case-guides-for-llms-in-mlflow">Tutorials and Use Case Guides for LLMs in MLflow</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">MLflow Tracing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../model-evaluation/index.html">Model Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../deep-learning/index.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../traditional-ml/index.html">Traditional ML</a></li>
@@ -224,6 +212,8 @@
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/tracing-ui.gif"><img alt="MLflow Tracing" src="../../_images/tracing-ui.gif" style="width: 80%;" /></a>
 </div>
+<p>A good companion to the explanations in this guide is the <a class="reference external" href="./tracing-schema.html">Tracing Schema</a> guide which will show how MLflow Tracing constructs the
+concepts discussed here.</p>
 <div class="section" id="what-is-tracing">
 <h2>What is tracing?<a class="headerlink" href="#what-is-tracing" title="Permalink to this headline"> </a></h2>
 <p>Tracing in the context of machine learning (ML) refers to the detailed tracking and recording of the data flow and processing steps during the execution of an ML model.
@@ -333,10 +323,10 @@ steps presents an entirely different challenge that would require the configurat
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="index.html" class="btn btn-neutral" title="Tracing in MLflow" accesskey="p"><span class="db-icon db-icon-chevron-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Introduction to MLflow Tracing" accesskey="p"><span class="db-icon db-icon-chevron-left"></span> Previous</a>
       
       
-        <a href="../deployments/index.html" class="btn btn-neutral" title="MLflow Deployments Server (Experimental)" accesskey="n">Next <span class="db-icon db-icon-chevron-right"></span></a>
+        <a href="tracing-schema.html" class="btn btn-neutral" title="MLflow Tracing Schema" accesskey="n">Next <span class="db-icon db-icon-chevron-right"></span></a>
       
     </div>
   
@@ -364,7 +354,7 @@ steps presents an entirely different challenge that would require the configurat
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:'../../',
-      VERSION:'2.14.1.dev0',
+      VERSION:'2.16.1.dev0',
       COLLAPSE_INDEX:false,
       FILE_SUFFIX:'.html',
       LINK_SUFFIX: '.html',

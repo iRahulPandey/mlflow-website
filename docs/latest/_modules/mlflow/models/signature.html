@@ -1,5 +1,4 @@
 
-  
 
 <!DOCTYPE html>
 <!-- source: docs/source/_modules/mlflow/models/signature -->
@@ -10,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>mlflow.models.signature &mdash; MLflow 2.14.1.dev0 documentation</title>
+  <title>mlflow.models.signature</title>
   
    
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -23,14 +22,6 @@
     
 
   
-    
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer',"GTM-N6WMTTJ");</script>
-        <!-- End Google Tag Manager -->
     
 
   
@@ -56,7 +47,7 @@
         <link rel="index" title="Index"
               href="../../../genindex.html"/>
         <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="MLflow 2.14.1.dev0 documentation" href="../../../index.html"/>
+    <link rel="top" title="MLflow 2.16.1.dev0 documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
   
@@ -73,11 +64,6 @@
 
 <body class="wy-body-for-nav" role="document">
   
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6WMTTJ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-  
 
   
   <nav class="wy-nav-top header" role="navigation" aria-label="top navigation">
@@ -87,7 +73,7 @@
     <a href="../../../index.html" class="wy-nav-top-logo"
       ><img src="../../../_static/MLflow-logo-final-black.png" alt="MLflow"
     /></a>
-    <span class="version">2.14.1.dev0</span>
+    <span class="version">2.16.1.dev0</span>
   </li>
 </ul>
   </nav>
@@ -128,6 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../getting-started/index.html">Getting Started with MLflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../new-features/index.html">New Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../llms/index.html">LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../llms/tracing/index.html">MLflow Tracing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../model-evaluation/index.html">Model Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../deep-learning/index.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../traditional-ml/index.html">Traditional ML</a></li>
@@ -221,7 +208,7 @@
 <span class="kn">from</span> <span class="nn">mlflow.exceptions</span> <span class="kn">import</span> <span class="n">MlflowException</span>
 <span class="kn">from</span> <span class="nn">mlflow.models</span> <span class="kn">import</span> <span class="n">Model</span>
 <span class="kn">from</span> <span class="nn">mlflow.models.model</span> <span class="kn">import</span> <span class="n">MLMODEL_FILE_NAME</span>
-<span class="kn">from</span> <span class="nn">mlflow.models.utils</span> <span class="kn">import</span> <span class="n">ModelInputExample</span><span class="p">,</span> <span class="n">_contains_params</span><span class="p">,</span> <span class="n">_Example</span>
+<span class="kn">from</span> <span class="nn">mlflow.models.utils</span> <span class="kn">import</span> <span class="n">_contains_params</span><span class="p">,</span> <span class="n">_Example</span>
 <span class="kn">from</span> <span class="nn">mlflow.protos.databricks_pb2</span> <span class="kn">import</span> <span class="n">INVALID_PARAMETER_VALUE</span><span class="p">,</span> <span class="n">RESOURCE_DOES_NOT_EXIST</span>
 <span class="kn">from</span> <span class="nn">mlflow.store.artifact.models_artifact_repo</span> <span class="kn">import</span> <span class="n">ModelsArtifactRepository</span>
 <span class="kn">from</span> <span class="nn">mlflow.store.artifact.runs_artifact_repo</span> <span class="kn">import</span> <span class="n">RunsArtifactRepository</span>
@@ -554,13 +541,13 @@
 
 
 <span class="k">def</span> <span class="nf">_infer_signature_from_input_example</span><span class="p">(</span>
-    <span class="n">input_example</span><span class="p">:</span> <span class="n">ModelInputExample</span><span class="p">,</span> <span class="n">wrapped_model</span><span class="p">,</span> <span class="n">return_prediction</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">no_conversion</span><span class="o">=</span><span class="kc">False</span>
+    <span class="n">input_example</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">_Example</span><span class="p">],</span> <span class="n">wrapped_model</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ModelSignature</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Infer the signature from an example input and a PyFunc wrapped model. Catches all exceptions.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        input_example: An instance representing a typical input to the model.</span>
+<span class="sd">        input_example: Saved _Example object that contains input example instance.</span>
 <span class="sd">        wrapped_model: A PyFunc wrapped model which has a `predict` method.</span>
 
 <span class="sd">    Returns:</span>
@@ -568,18 +555,24 @@
 <span class="sd">        based on the `input_example` and the model&#39;s outputs based on the prediction from the</span>
 <span class="sd">        `wrapped_model`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">mlflow.pyfunc</span> <span class="kn">import</span> <span class="n">_validate_prediction_input</span>
+
+    <span class="k">if</span> <span class="n">input_example</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">_contains_params</span><span class="p">(</span><span class="n">input_example</span><span class="p">):</span>
-            <span class="n">input_example</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">input_example</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">params</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">no_conversion</span><span class="p">:</span>
-            <span class="n">example</span> <span class="o">=</span> <span class="n">_Example</span><span class="p">(</span><span class="n">input_example</span><span class="p">)</span>
-            <span class="c1"># Copy the input example so that it is not mutated by predict()</span>
-            <span class="n">input_example</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">inference_data</span><span class="p">)</span>
-        <span class="n">input_schema</span> <span class="o">=</span> <span class="n">_infer_schema</span><span class="p">(</span><span class="n">input_example</span><span class="p">)</span>
+        <span class="c1"># Copy the input example so that it is not mutated by predict()</span>
+        <span class="n">input_data</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">input_example</span><span class="o">.</span><span class="n">inference_data</span><span class="p">)</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">input_example</span><span class="o">.</span><span class="n">inference_params</span>
+
+        <span class="n">input_schema</span> <span class="o">=</span> <span class="n">_infer_schema</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
         <span class="n">params_schema</span> <span class="o">=</span> <span class="n">_infer_param_schema</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span> <span class="k">else</span> <span class="kc">None</span>
-        <span class="n">prediction</span> <span class="o">=</span> <span class="n">wrapped_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_example</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+        <span class="c1"># do the same validation as pyfunc predict to make sure the signature is correctly</span>
+        <span class="c1"># applied to the model</span>
+        <span class="n">input_data</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">_validate_prediction_input</span><span class="p">(</span>
+            <span class="n">input_data</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">input_schema</span><span class="p">,</span> <span class="n">params_schema</span>
+        <span class="p">)</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">wrapped_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
         <span class="c1"># For column-based inputs, 1D numpy arrays likely signify row-based predictions. Thus, we</span>
         <span class="c1"># convert them to a Pandas series for inferring as a single ColSpec Schema.</span>
         <span class="k">if</span> <span class="p">(</span>
@@ -598,8 +591,20 @@
             <span class="n">signature</span> <span class="o">=</span> <span class="n">ModelSignature</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">input_schema</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params_schema</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">signature</span> <span class="o">=</span> <span class="n">ModelSignature</span><span class="p">(</span><span class="n">input_schema</span><span class="p">,</span> <span class="n">output_schema</span><span class="p">,</span> <span class="n">params_schema</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">return_prediction</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">signature</span><span class="p">,</span> <span class="n">prediction</span>
+
+        <span class="c1"># try assign output schema if failing to infer it from prediction for langchain models</span>
+        <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">outputs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="kn">from</span> <span class="nn">mlflow.langchain</span> <span class="kn">import</span> <span class="n">_LangChainModelWrapper</span>
+                <span class="kn">from</span> <span class="nn">mlflow.langchain.utils.chat</span> <span class="kn">import</span> <span class="n">_ChatResponse</span>
+            <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wrapped_model</span><span class="p">,</span> <span class="n">_LangChainModelWrapper</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span>
+                    <span class="n">prediction</span><span class="p">,</span> <span class="n">_ChatResponse</span>
+                <span class="p">):</span>
+                    <span class="n">signature</span><span class="o">.</span><span class="n">outputs</span> <span class="o">=</span> <span class="n">prediction</span><span class="o">.</span><span class="n">get_schema</span><span class="p">()</span>
+
         <span class="k">return</span> <span class="n">signature</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">environment_variables</span><span class="o">.</span><span class="n">_MLFLOW_TESTING</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
@@ -720,7 +725,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:'../../../',
-      VERSION:'2.14.1.dev0',
+      VERSION:'2.16.1.dev0',
       COLLAPSE_INDEX:false,
       FILE_SUFFIX:'.html',
       LINK_SUFFIX: '.html',

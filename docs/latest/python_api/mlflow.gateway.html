@@ -1,5 +1,4 @@
 
-  
 
 <!DOCTYPE html>
 <!-- source: docs/source/python_api/mlflow.gateway.rst -->
@@ -10,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>mlflow.gateway &mdash; MLflow 2.14.1.dev0 documentation</title>
+  <title>mlflow.gateway</title>
   
    
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -23,14 +22,6 @@
     
 
   
-    
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer',"GTM-N6WMTTJ");</script>
-        <!-- End Google Tag Manager -->
     
 
   
@@ -56,7 +47,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="MLflow 2.14.1.dev0 documentation" href="../index.html"/>
+    <link rel="top" title="MLflow 2.16.1.dev0 documentation" href="../index.html"/>
         <link rel="up" title="Python API" href="index.html"/>
         <link rel="next" title="mlflow.gluon" href="/mlflow.gluon.html"/>
         <link rel="prev" title="mlflow.fastai" href="/mlflow.fastai.html"/> 
@@ -74,11 +65,6 @@
 
 <body class="wy-body-for-nav" role="document">
   
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6WMTTJ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-  
 
   
   <nav class="wy-nav-top header" role="navigation" aria-label="top navigation">
@@ -88,7 +74,7 @@
     <a href="../index.html" class="wy-nav-top-logo"
       ><img src="../_static/MLflow-logo-final-black.png" alt="MLflow"
     /></a>
-    <span class="version">2.14.1.dev0</span>
+    <span class="version">2.16.1.dev0</span>
   </li>
 </ul>
   </nav>
@@ -129,6 +115,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started with MLflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../new-features/index.html">New Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../llms/index.html">LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../llms/tracing/index.html">MLflow Tracing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model-evaluation/index.html">Model Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deep-learning/index.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../traditional-ml/index.html">Traditional ML</a></li>
@@ -148,6 +135,7 @@
 <li class="toctree-l2"><a class="reference internal" href="mlflow.html">mlflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlflow.html#mlflow-tracing-apis">MLflow Tracing APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlflow.artifacts.html">mlflow.artifacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mlflow.autogen.html">mlflow.autogen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlflow.catboost.html">mlflow.catboost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlflow.client.html">mlflow.client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlflow.config.html">mlflow.config</a></li>
@@ -164,6 +152,7 @@
 <li class="toctree-l2"><a class="reference internal" href="mlflow.keras.html">mlflow.keras</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlflow.langchain.html">mlflow.langchain</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlflow.lightgbm.html">mlflow.lightgbm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mlflow.llama_index.html">mlflow.llama_index</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlflow.metrics.html">mlflow.metrics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlflow.mleap.html">mlflow.mleap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mlflow.models.html">mlflow.models</a></li>
@@ -295,7 +284,7 @@ Databricks (the provider isn’t ‘databricks’).</p></li>
 This parameter is required for all routes. This dictionary should define:</p>
 <blockquote>
 <div><ul>
-<li><p>The model name (e.g., “gpt-3.5-turbo”)</p></li>
+<li><p>The model name (e.g., “gpt-4o-mini”)</p></li>
 <li><p>The provider (e.g., “openai”, “anthropic”)</p></li>
 <li><p>The configuration for the model used in the route</p></li>
 </ul>
@@ -604,7 +593,7 @@ is specified during Gateway server start.</p>
 not managed by Databricks (the provider isn’t ‘databricks’).</p></li>
 <li><p><strong>model</strong> – A dictionary representing the model details to be associated with the route.
 This parameter is required for all routes. This dictionary should define:
-- The model name (e.g., “gpt-3.5-turbo”)
+- The model name (e.g., “gpt-4o-mini”)
 - The provider (e.g., “openai”, “anthropic”)
 - The configuration for the model used in the route</p></li>
 </ul>
@@ -867,6 +856,13 @@ AI Gateway fluent APIs.</p>
 </div>
 </dd></dl>
 
+<span class="target" id="module-mlflow.gateway.base_models"></span><dl class="py class">
+<dt id="mlflow.gateway.base_models.ConfigModel">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mlflow.gateway.base_models.</span></code><code class="sig-name descname"><span class="pre">ConfigModel</span></code><a class="reference internal" href="../_modules/mlflow/gateway/base_models.html#ConfigModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mlflow.gateway.base_models.ConfigModel" title="Permalink to this definition"> </a></dt>
+<dd><p>A pydantic model representing Gateway configuration data, such as an OpenAI completions
+route definition including route name, model name, API keys, etc.</p>
+</dd></dl>
+
 <span class="target" id="module-mlflow.gateway.client"></span><dl class="py class">
 <dt id="mlflow.gateway.client.MlflowGatewayClient">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mlflow.gateway.client.</span></code><code class="sig-name descname"><span class="pre">MlflowGatewayClient</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gateway_uri</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mlflow/gateway/client.html#MlflowGatewayClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mlflow.gateway.client.MlflowGatewayClient" title="Permalink to this definition"> </a></dt>
@@ -903,7 +899,7 @@ Databricks (the provider isn’t ‘databricks’).</p></li>
 This parameter is required for all routes. This dictionary should define:</p>
 <blockquote>
 <div><ul>
-<li><p>The model name (e.g., “gpt-3.5-turbo”)</p></li>
+<li><p>The model name (e.g., “gpt-4o-mini”)</p></li>
 <li><p>The provider (e.g., “openai”, “anthropic”)</p></li>
 <li><p>The configuration for the model used in the route</p></li>
 </ul>
@@ -1205,9 +1201,9 @@ data structure, giving information about the renewal_period, key, and calls.</p>
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.AI21LabsConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'ai21labs_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.AI21LabsConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'ai21labs_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.AI21LabsConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1234,9 +1230,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.AWSBaseConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'aws_region':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None)}</span></em><a class="headerlink" href="#mlflow.gateway.config.AWSBaseConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'aws_region':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None)}</span></em><a class="headerlink" href="#mlflow.gateway.config.AWSBaseConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1268,9 +1264,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.AWSIdAndKey.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'aws_access_key_id':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'aws_region':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'aws_secret_access_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'aws_session_token':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None)}</span></em><a class="headerlink" href="#mlflow.gateway.config.AWSIdAndKey.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'aws_access_key_id':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'aws_region':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'aws_secret_access_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'aws_session_token':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None)}</span></em><a class="headerlink" href="#mlflow.gateway.config.AWSIdAndKey.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1292,9 +1288,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.AWSRole.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'aws_region':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'aws_role_arn':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'session_length_seconds':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=False,</span> <span class="pre">default=900)}</span></em><a class="headerlink" href="#mlflow.gateway.config.AWSRole.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'aws_region':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'aws_role_arn':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'session_length_seconds':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=False,</span> <span class="pre">default=900)}</span></em><a class="headerlink" href="#mlflow.gateway.config.AWSRole.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1317,9 +1313,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.AliasedConfigModel.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#mlflow.gateway.config.AliasedConfigModel.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#mlflow.gateway.config.AliasedConfigModel.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1341,9 +1337,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.AmazonBedrockConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'aws_config':</span> <span class="pre">FieldInfo(annotation=Union[AWSRole,</span> <span class="pre">AWSIdAndKey,</span> <span class="pre">AWSBaseConfig],</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.AmazonBedrockConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'aws_config':</span> <span class="pre">FieldInfo(annotation=Union[AWSRole,</span> <span class="pre">AWSIdAndKey,</span> <span class="pre">AWSBaseConfig],</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.AmazonBedrockConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1370,9 +1366,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.AnthropicConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'anthropic_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'anthropic_version':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='2023-06-01')}</span></em><a class="headerlink" href="#mlflow.gateway.config.AnthropicConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'anthropic_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'anthropic_version':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='2023-06-01')}</span></em><a class="headerlink" href="#mlflow.gateway.config.AnthropicConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1399,9 +1395,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.CohereConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'cohere_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.CohereConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'cohere_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.CohereConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1423,9 +1419,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.GatewayConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'routes':</span> <span class="pre">FieldInfo(annotation=List[mlflow.gateway.config.RouteConfig],</span> <span class="pre">required=True,</span> <span class="pre">alias='endpoints',</span> <span class="pre">alias_priority=2)}</span></em><a class="headerlink" href="#mlflow.gateway.config.GatewayConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'routes':</span> <span class="pre">FieldInfo(annotation=List[mlflow.gateway.config.RouteConfig],</span> <span class="pre">required=True,</span> <span class="pre">alias='endpoints',</span> <span class="pre">alias_priority=2)}</span></em><a class="headerlink" href="#mlflow.gateway.config.GatewayConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1452,9 +1448,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.HuggingFaceTextGenerationInferenceConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'hf_server_url':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.HuggingFaceTextGenerationInferenceConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'hf_server_url':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.HuggingFaceTextGenerationInferenceConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1481,9 +1477,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.Limit.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'calls':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=True),</span> <span class="pre">'key':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'renewal_period':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.Limit.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'calls':</span> <span class="pre">FieldInfo(annotation=int,</span> <span class="pre">required=True),</span> <span class="pre">'key':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'renewal_period':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.Limit.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1510,9 +1506,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.LimitsConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'limits':</span> <span class="pre">FieldInfo(annotation=Union[List[mlflow.gateway.config.Limit],</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=[])}</span></em><a class="headerlink" href="#mlflow.gateway.config.LimitsConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'limits':</span> <span class="pre">FieldInfo(annotation=Union[List[mlflow.gateway.config.Limit],</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=[])}</span></em><a class="headerlink" href="#mlflow.gateway.config.LimitsConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1534,9 +1530,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.MistralConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'mistral_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.MistralConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'mistral_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.MistralConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1558,9 +1554,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.MlflowModelServingConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'model_server_url':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.MlflowModelServingConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'model_server_url':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.MlflowModelServingConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1573,10 +1569,10 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py class">
 <dt id="mlflow.gateway.config.Model">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mlflow.gateway.config.</span></code><code class="sig-name descname"><span class="pre">Model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">provider</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.Provider" title="mlflow.gateway.config.Provider"><span class="pre">mlflow.gateway.config.Provider</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mlflow.gateway.config.CohereConfig" title="mlflow.gateway.config.CohereConfig"><span class="pre">mlflow.gateway.config.CohereConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.OpenAIConfig" title="mlflow.gateway.config.OpenAIConfig"><span class="pre">mlflow.gateway.config.OpenAIConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.AI21LabsConfig" title="mlflow.gateway.config.AI21LabsConfig"><span class="pre">mlflow.gateway.config.AI21LabsConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.AnthropicConfig" title="mlflow.gateway.config.AnthropicConfig"><span class="pre">mlflow.gateway.config.AnthropicConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.AmazonBedrockConfig" title="mlflow.gateway.config.AmazonBedrockConfig"><span class="pre">mlflow.gateway.config.AmazonBedrockConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.MosaicMLConfig" title="mlflow.gateway.config.MosaicMLConfig"><span class="pre">mlflow.gateway.config.MosaicMLConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.MlflowModelServingConfig" title="mlflow.gateway.config.MlflowModelServingConfig"><span class="pre">mlflow.gateway.config.MlflowModelServingConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.HuggingFaceTextGenerationInferenceConfig" title="mlflow.gateway.config.HuggingFaceTextGenerationInferenceConfig"><span class="pre">mlflow.gateway.config.HuggingFaceTextGenerationInferenceConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.PaLMConfig" title="mlflow.gateway.config.PaLMConfig"><span class="pre">mlflow.gateway.config.PaLMConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.MistralConfig" title="mlflow.gateway.config.MistralConfig"><span class="pre">mlflow.gateway.config.MistralConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.TogetherAIConfig" title="mlflow.gateway.config.TogetherAIConfig"><span class="pre">mlflow.gateway.config.TogetherAIConfig</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mlflow/gateway/config.html#Model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mlflow.gateway.config.Model" title="Permalink to this definition"> </a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mlflow.gateway.config.</span></code><code class="sig-name descname"><span class="pre">Model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">provider</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.Provider" title="mlflow.gateway.config.Provider"><span class="pre">mlflow.gateway.config.Provider</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mlflow.gateway.base_models.ConfigModel" title="mlflow.gateway.base_models.ConfigModel"><span class="pre">mlflow.gateway.base_models.ConfigModel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mlflow.gateway.base_models.ConfigModel" title="mlflow.gateway.base_models.ConfigModel"><span class="pre">mlflow.gateway.base_models.ConfigModel</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mlflow/gateway/config.html#Model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mlflow.gateway.config.Model" title="Permalink to this definition"> </a></dt>
 <dd><dl class="py attribute">
 <dt id="mlflow.gateway.config.Model.config">
-<code class="sig-name descname"><span class="pre">config</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mlflow.gateway.config.CohereConfig" title="mlflow.gateway.config.CohereConfig"><span class="pre">mlflow.gateway.config.CohereConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.OpenAIConfig" title="mlflow.gateway.config.OpenAIConfig"><span class="pre">mlflow.gateway.config.OpenAIConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.AI21LabsConfig" title="mlflow.gateway.config.AI21LabsConfig"><span class="pre">mlflow.gateway.config.AI21LabsConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.AnthropicConfig" title="mlflow.gateway.config.AnthropicConfig"><span class="pre">mlflow.gateway.config.AnthropicConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.AmazonBedrockConfig" title="mlflow.gateway.config.AmazonBedrockConfig"><span class="pre">mlflow.gateway.config.AmazonBedrockConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.MosaicMLConfig" title="mlflow.gateway.config.MosaicMLConfig"><span class="pre">mlflow.gateway.config.MosaicMLConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.MlflowModelServingConfig" title="mlflow.gateway.config.MlflowModelServingConfig"><span class="pre">mlflow.gateway.config.MlflowModelServingConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.HuggingFaceTextGenerationInferenceConfig" title="mlflow.gateway.config.HuggingFaceTextGenerationInferenceConfig"><span class="pre">mlflow.gateway.config.HuggingFaceTextGenerationInferenceConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.PaLMConfig" title="mlflow.gateway.config.PaLMConfig"><span class="pre">mlflow.gateway.config.PaLMConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.MistralConfig" title="mlflow.gateway.config.MistralConfig"><span class="pre">mlflow.gateway.config.MistralConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#mlflow.gateway.config.TogetherAIConfig" title="mlflow.gateway.config.TogetherAIConfig"><span class="pre">mlflow.gateway.config.TogetherAIConfig</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mlflow.gateway.config.Model.config" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">config</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mlflow.gateway.base_models.ConfigModel" title="mlflow.gateway.base_models.ConfigModel"><span class="pre">mlflow.gateway.base_models.ConfigModel</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mlflow.gateway.base_models.ConfigModel" title="mlflow.gateway.base_models.ConfigModel"><span class="pre">mlflow.gateway.base_models.ConfigModel</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mlflow.gateway.config.Model.config" title="Permalink to this definition"> </a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1587,9 +1583,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.Model.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'config':</span> <span class="pre">FieldInfo(annotation=Union[CohereConfig,</span> <span class="pre">OpenAIConfig,</span> <span class="pre">AI21LabsConfig,</span> <span class="pre">AnthropicConfig,</span> <span class="pre">AmazonBedrockConfig,</span> <span class="pre">MosaicMLConfig,</span> <span class="pre">MlflowModelServingConfig,</span> <span class="pre">HuggingFaceTextGenerationInferenceConfig,</span> <span class="pre">PaLMConfig,</span> <span class="pre">MistralConfig,</span> <span class="pre">TogetherAIConfig,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'name':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'provider':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">Provider],</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.Model.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'config':</span> <span class="pre">FieldInfo(annotation=Union[Annotated[mlflow.gateway.base_models.ConfigModel,</span> <span class="pre">SerializeAsAny()],</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'name':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'provider':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">Provider],</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.Model.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1626,9 +1622,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.ModelInfo.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'name':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'provider':</span> <span class="pre">FieldInfo(annotation=Provider,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.ModelInfo.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'name':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'provider':</span> <span class="pre">FieldInfo(annotation=Provider,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.ModelInfo.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1655,9 +1651,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.MosaicMLConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'mosaicml_api_base':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'mosaicml_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.MosaicMLConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'mosaicml_api_base':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'mosaicml_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.MosaicMLConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1710,9 +1706,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.OpenAIConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'openai_api_base':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'openai_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'openai_api_type':</span> <span class="pre">FieldInfo(annotation=OpenAIAPIType,</span> <span class="pre">required=False,</span> <span class="pre">default=&lt;OpenAIAPIType.OPENAI:</span> <span class="pre">'openai'&gt;),</span> <span class="pre">'openai_api_version':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'openai_deployment_name':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'openai_organization':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None)}</span></em><a class="headerlink" href="#mlflow.gateway.config.OpenAIConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'openai_api_base':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'openai_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'openai_api_type':</span> <span class="pre">FieldInfo(annotation=OpenAIAPIType,</span> <span class="pre">required=False,</span> <span class="pre">default=&lt;OpenAIAPIType.OPENAI:</span> <span class="pre">'openai'&gt;),</span> <span class="pre">'openai_api_version':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'openai_deployment_name':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'openai_organization':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None)}</span></em><a class="headerlink" href="#mlflow.gateway.config.OpenAIConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1769,9 +1765,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.PaLMConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'palm_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.PaLMConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'palm_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.PaLMConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1876,7 +1872,7 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 <em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Config</span></code><a class="reference internal" href="../_modules/mlflow/gateway/config.html#Route.Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mlflow.gateway.config.Route.Config" title="Permalink to this definition"> </a></dt>
 <dd><dl class="py attribute">
 <dt id="mlflow.gateway.config.Route.Config.json_schema_extra">
-<code class="sig-name descname"><span class="pre">json_schema_extra</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'example':</span> <span class="pre">{'model':</span> <span class="pre">{'name':</span> <span class="pre">'gpt-3.5-turbo',</span> <span class="pre">'provider':</span> <span class="pre">'openai'},</span> <span class="pre">'name':</span> <span class="pre">'openai-completions',</span> <span class="pre">'route_type':</span> <span class="pre">'llm/v1/completions',</span> <span class="pre">'route_url':</span> <span class="pre">'/gateway/routes/completions/invocations'}}</span></em><a class="headerlink" href="#mlflow.gateway.config.Route.Config.json_schema_extra" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">json_schema_extra</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'example':</span> <span class="pre">{'model':</span> <span class="pre">{'name':</span> <span class="pre">'gpt-4o-mini',</span> <span class="pre">'provider':</span> <span class="pre">'openai'},</span> <span class="pre">'name':</span> <span class="pre">'openai-completions',</span> <span class="pre">'route_type':</span> <span class="pre">'llm/v1/completions',</span> <span class="pre">'route_url':</span> <span class="pre">'/gateway/routes/completions/invocations'}}</span></em><a class="headerlink" href="#mlflow.gateway.config.Route.Config.json_schema_extra" title="Permalink to this definition"> </a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1893,15 +1889,15 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.Route.model_config">
-<code class="sig-name descname"><span class="pre">model_config</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'extra':</span> <span class="pre">'ignore',</span> <span class="pre">'json_schema_extra':</span> <span class="pre">{'example':</span> <span class="pre">{'model':</span> <span class="pre">{'name':</span> <span class="pre">'gpt-3.5-turbo',</span> <span class="pre">'provider':</span> <span class="pre">'openai'},</span> <span class="pre">'name':</span> <span class="pre">'openai-completions',</span> <span class="pre">'route_type':</span> <span class="pre">'llm/v1/completions',</span> <span class="pre">'route_url':</span> <span class="pre">'/gateway/routes/completions/invocations'}}}</span></em><a class="headerlink" href="#mlflow.gateway.config.Route.model_config" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_config</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'extra':</span> <span class="pre">'ignore',</span> <span class="pre">'json_schema_extra':</span> <span class="pre">{'example':</span> <span class="pre">{'model':</span> <span class="pre">{'name':</span> <span class="pre">'gpt-4o-mini',</span> <span class="pre">'provider':</span> <span class="pre">'openai'},</span> <span class="pre">'name':</span> <span class="pre">'openai-completions',</span> <span class="pre">'route_type':</span> <span class="pre">'llm/v1/completions',</span> <span class="pre">'route_url':</span> <span class="pre">'/gateway/routes/completions/invocations'}}}</span></em><a class="headerlink" href="#mlflow.gateway.config.Route.model_config" title="Permalink to this definition"> </a></dt>
 <dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.Route.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'limit':</span> <span class="pre">FieldInfo(annotation=Union[Limit,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'model':</span> <span class="pre">FieldInfo(annotation=RouteModelInfo,</span> <span class="pre">required=True),</span> <span class="pre">'name':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'route_type':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'route_url':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.Route.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'limit':</span> <span class="pre">FieldInfo(annotation=Union[Limit,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'model':</span> <span class="pre">FieldInfo(annotation=RouteModelInfo,</span> <span class="pre">required=True),</span> <span class="pre">'name':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'route_type':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'route_url':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.Route.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -1948,9 +1944,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.RouteConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'limit':</span> <span class="pre">FieldInfo(annotation=Union[Limit,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'model':</span> <span class="pre">FieldInfo(annotation=Model,</span> <span class="pre">required=True),</span> <span class="pre">'name':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'route_type':</span> <span class="pre">FieldInfo(annotation=RouteType,</span> <span class="pre">required=True,</span> <span class="pre">alias='endpoint_type',</span> <span class="pre">alias_priority=2)}</span></em><a class="headerlink" href="#mlflow.gateway.config.RouteConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'limit':</span> <span class="pre">FieldInfo(annotation=Union[Limit,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'model':</span> <span class="pre">FieldInfo(annotation=Model,</span> <span class="pre">required=True),</span> <span class="pre">'name':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True),</span> <span class="pre">'route_type':</span> <span class="pre">FieldInfo(annotation=RouteType,</span> <span class="pre">required=True,</span> <span class="pre">alias='endpoint_type',</span> <span class="pre">alias_priority=2)}</span></em><a class="headerlink" href="#mlflow.gateway.config.RouteConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -2007,9 +2003,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.RouteModelInfo.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'name':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'provider':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.RouteModelInfo.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'name':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=None),</span> <span class="pre">'provider':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.RouteModelInfo.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -2057,9 +2053,9 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
 
 <dl class="py attribute">
 <dt id="mlflow.gateway.config.TogetherAIConfig.model_fields">
-<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'togetherai_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.TogetherAIConfig.model_fields" title="Permalink to this definition"> </a></dt>
+<code class="sig-name descname"><span class="pre">model_fields</span></code><em class="property"><span class="pre">:</span> <span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'togetherai_api_key':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=True)}</span></em><a class="headerlink" href="#mlflow.gateway.config.TogetherAIConfig.model_fields" title="Permalink to this definition"> </a></dt>
 <dd><p>Metadata about the fields defined on the model,
-mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
 <p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
 </dd></dl>
 
@@ -2115,7 +2111,7 @@ mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:'../',
-      VERSION:'2.14.1.dev0',
+      VERSION:'2.16.1.dev0',
       COLLAPSE_INDEX:false,
       FILE_SUFFIX:'.html',
       LINK_SUFFIX: '.html',

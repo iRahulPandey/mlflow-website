@@ -1,5 +1,4 @@
 
-  
 
 <!DOCTYPE html>
 <!-- source: docs/source/llms/index.rst -->
@@ -10,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>LLMs &mdash; MLflow 2.14.1.dev0 documentation</title>
+  <title>LLMs</title>
   
    
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -23,14 +22,6 @@
     
 
   
-    
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer',"GTM-N6WMTTJ");</script>
-        <!-- End Google Tag Manager -->
     
 
   
@@ -56,8 +47,8 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="MLflow 2.14.1.dev0 documentation" href="../index.html"/>
-        <link rel="next" title="Tracing in MLflow" href="/tracing/index.html"/>
+    <link rel="top" title="MLflow 2.16.1.dev0 documentation" href="../index.html"/>
+        <link rel="next" title="Introduction to MLflow Tracing" href="/tracing/index.html"/>
         <link rel="prev" title="New Features" href="/../new-features/index.html"/> 
 
   
@@ -73,11 +64,6 @@
 
 <body class="wy-body-for-nav" role="document">
   
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6WMTTJ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-  
 
   
   <nav class="wy-nav-top header" role="navigation" aria-label="top navigation">
@@ -87,7 +73,7 @@
     <a href="../index.html" class="wy-nav-top-logo"
       ><img src="../_static/MLflow-logo-final-black.png" alt="MLflow"
     /></a>
-    <span class="version">2.14.1.dev0</span>
+    <span class="version">2.16.1.dev0</span>
   </li>
 </ul>
   </nav>
@@ -129,8 +115,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../new-features/index.html">New Features</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">LLMs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">MLflow Tracing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tracing/index.html">Tracing in MLflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tracing/index.html">Introduction to MLflow Tracing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tracing/overview.html">Tracing Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tracing/tracing-schema.html">MLflow Tracing Schema</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">MLflow Deployments Server for LLMs</a><ul>
@@ -154,6 +141,7 @@
 <li class="toctree-l3"><a class="reference internal" href="openai/index.html">MLflow OpenAI Flavor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sentence-transformers/index.html">MLflow Sentence-Transformers Flavor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="langchain/index.html">MLflow LangChain Flavor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llama-index/index.html">MLflow LlamaIndex Flavor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#explore-the-native-llm-flavors">Explore the Native LLM Flavors</a></li>
 </ul>
 </li>
@@ -171,6 +159,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="tracing/index.html">MLflow Tracing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model-evaluation/index.html">Model Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deep-learning/index.html">Deep Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../traditional-ml/index.html">Traditional ML</a></li>
@@ -256,19 +245,20 @@ capabilities into their applications.</p>
 <p class="admonition-title">Note</p>
 <p>MLflow Tracing is currently in <strong>Experimental Status</strong> and is subject to change without deprecation warning or notification.</p>
 </div>
-<p>MLflow offers comprehensive tracing capabilities to monitor and analyze the execution of GenAI applications. This includes automated tracing with
-LangChain integration, manual trace instrumentation using high-level fluent APIs, and low-level client APIs for fine-grained control. This functionality
+<p>MLflow offers comprehensive tracing capabilities to monitor and analyze the execution of GenAI applications. This includes automated tracing GenAI frameworks such as
+LangChain, OpenAI, LlamaIndex, manual trace instrumentation using high-level fluent APIs, and low-level client APIs for fine-grained control. This functionality
 allows you to capture detailed trace data, enabling better debugging, performance monitoring, and insights into complex workflows.
 Whether through decorators, context managers, or explicit API calls, MLflow provides the flexibility needed to trace and optimize the operations
 of your GenAI models and retain your traced data within the tracking server for further analysis.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="tracing/index.html#langchain-automatic-tracing">Automated tracing with LangChain</a>: Seamless integration with LangChain for automatic trace data collection.</p></li>
+<li><p><a class="reference external" href="tracing/index.html#automatic-tracing">Automated tracing with GenAI libraries</a>: Seamless integration with libraries such as LangChain, OpenAI, LlamaIndex, and AutoGen, for automatic trace data collection.</p></li>
 <li><p><a class="reference external" href="tracing/index.html#tracing-fluent-apis">Manual trace instrumentation with high-level fluent APIs</a>: Easy-to-use decorators and context managers for adding tracing with minimal code changes.</p></li>
 <li><p><a class="reference external" href="tracing/index.html#tracing-client-apis">Low-level client APIs for tracing</a>: Thread-safe methods for detailed and explicit control over trace data management.</p></li>
 </ul>
 <div class="toctree-wrapper compound">
 </div>
-<p>To learn more about what tracing is, see our <a class="reference external" href="tracing/overview.html">Tracing Concepts Overview</a> guide.</p>
+<p>To learn more about what tracing is, see our <a class="reference external" href="tracing/overview.html">Tracing Concepts Overview</a> guide. For an in-depth exploration into the structure of
+MLflow traces and their schema, see the <a class="reference external" href="tracing/tracing-schema.html">Tracing Schema</a> guide.</p>
 </div>
 <div class="section" id="id2">
 <h2><a class="reference external" href="deployments/index.html">MLflow Deployments Server for LLMs</a><a class="headerlink" href="#id2" title="Permalink to this headline"> </a></h2>
@@ -438,6 +428,7 @@ Features and interfaces may evolve as feedback is gathered and the tool is refin
 <ul>
 <li><p>Load models as PyFuncs for broad compatibility across serving infrastructures.</p></li>
 <li><p>Strengthens the MLOps process for LLMs, ensuring smooth deployments.</p></li>
+<li><p>Utilize the <a class="reference external" href="../model/models-from-code.html">Models From Code feature</a> for simplified GenAI application development.</p></li>
 </ul>
 </li>
 <li><p><strong>Cohesive Ecosystem</strong>:</p>
@@ -495,6 +486,17 @@ Features and interfaces may evolve as feedback is gathered and the tool is refin
                 <p>
                     Learn about MLflow's native integration with LangChain and see example notebooks that leverage
                     MLflow and LangChain to build LLM-backed applications.
+                </p>
+            </a>
+        </div>
+        <div class="simple-card">
+            <a href="llama-index/index.html">
+                <div class="header-with-image">
+                    <img src="../_static/images/logos/llamaindex-logo.svg" alt="LlamaIndex Logo" style="width: 90%"/>
+                </div>
+                <p>
+                    Learn about MLflow's native integration with LlamaIndex and see example notebooks that leverage
+                    MLflow and LlamaIndex to build advanced QA systems, chatbots, and other AI-driven applications.
                 </p>
             </a>
         </div>
@@ -587,7 +589,7 @@ premier solution for managing and analyzing interactions with Large Language Mod
         <a href="../new-features/index.html" class="btn btn-neutral" title="New Features" accesskey="p"><span class="db-icon db-icon-chevron-left"></span> Previous</a>
       
       
-        <a href="tracing/index.html" class="btn btn-neutral" title="Tracing in MLflow" accesskey="n">Next <span class="db-icon db-icon-chevron-right"></span></a>
+        <a href="tracing/index.html" class="btn btn-neutral" title="Introduction to MLflow Tracing" accesskey="n">Next <span class="db-icon db-icon-chevron-right"></span></a>
       
     </div>
   
@@ -615,7 +617,7 @@ premier solution for managing and analyzing interactions with Large Language Mod
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:'../',
-      VERSION:'2.14.1.dev0',
+      VERSION:'2.16.1.dev0',
       COLLAPSE_INDEX:false,
       FILE_SUFFIX:'.html',
       LINK_SUFFIX: '.html',
